@@ -26,9 +26,15 @@ public class Test {
         Line2list.add(G);
         Line l2 = new Line(2, Line2list);
 
+        ArrayList<Stop> Line3list = new ArrayList<>();
+        Line3list.add(A);
+        Line3list.add(G);
+
+        Line l3 = new Line(3, Line3list);
+
         PathFinder p = new PathFinder();
         p.addVertices();
-        p.findPath(A, D);
+        p.findPath(A, G);
 
     }
 }

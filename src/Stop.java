@@ -3,16 +3,16 @@ import java.util.HashMap;
 public class Stop {
 
     private String stopName;
-    private static HashMap<Stop, Integer> stopIntSet = new HashMap<>();
-    private static HashMap<Integer, Stop> intStopSet = new HashMap<>();
+    private static HashMap<Stop, Integer> stopIntMap = new HashMap<>();
+    private static HashMap<Integer, Stop> intStopMap = new HashMap<>();
     private static int stopCounter = 0;
 
     public Stop() {}
 
     public Stop(String name) {
         this.stopName = name;
-        this.stopIntSet.put(this, stopCounter);
-        this.intStopSet.put(stopCounter, this);
+        this.stopIntMap.put(this, stopCounter);
+        this.intStopMap.put(stopCounter, this);
         stopCounter++;
     }
 
@@ -20,6 +20,6 @@ public class Stop {
     public String getStopName() {
         return stopName;
     }
-    public int getStopIntSet(Stop s) { return stopIntSet.get(s); }
-    public Stop getIntStopSet(int i) { return intStopSet.get(i); }
+    public int getStopIntMap(Stop s) { return stopIntMap.get(s); }
+    public Stop getIntStopMap(int i) { return intStopMap.get(i); }
 }

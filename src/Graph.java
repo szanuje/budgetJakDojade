@@ -50,7 +50,7 @@ public class Graph {
 
         // Prints all paths from
         // 's' to 'd'
-        public void printAllPaths(int s, int d)
+        public ArrayList<ArrayList<Integer>> getAllPaths(int s, int d)
         {
             boolean[] isVisited = new boolean[v];
             ArrayList<Integer> pathList = new ArrayList<>();
@@ -59,7 +59,9 @@ public class Graph {
             pathList.add(s);
 
             //Call recursive utility
-            printAllPathsUtil(s, d, isVisited, pathList);
+            getAllPathsUtil(s, d, isVisited, pathList);
+
+            return this.paths;
         }
 
         // A recursive function to print
@@ -68,7 +70,7 @@ public class Graph {
         // vertices in current path.
         // localPathList<> stores actual
         // vertices in the current path
-        private void printAllPathsUtil(Integer u, Integer d,
+        private void getAllPathsUtil(Integer u, Integer d,
                                        boolean[] isVisited,
                                        ArrayList<Integer> localPathList) {
 
@@ -93,7 +95,7 @@ public class Graph {
                     // store current node
                     // in path[]
                     localPathList.add(i);
-                    printAllPathsUtil(i, d, isVisited, localPathList);
+                    getAllPathsUtil(i, d, isVisited, localPathList);
 
                     // remove current node
                     // in path[]

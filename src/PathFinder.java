@@ -17,24 +17,26 @@ public class PathFinder {
         pf = new Graph(graphSize);
 
         System.out.println(vertices);
-        for (int i = 0; i < vertices.size() - 1; i++) {
-            for (int j = 0; j < vertices.get(i).size(); j++) {
-                pf.addEdge(vertices.get(i).get(j),vertices.get(i).get(j+1) );
-                pf.addEdge(vertices.get(i).get(j+1),vertices.get(i).get(j) );
-            }
+        for (int i = 0; i < vertices.size(); i++) {
+            pf.addEdge(vertices.get(i).get(0), vertices.get(i).get(1));
+            pf.addEdge(vertices.get(i).get(1), vertices.get(i).get(0));
         }
+
     }
 
     public ArrayList<ArrayList<Stop>> findPath(Stop first, Stop Last) {
-        ArrayList<ArrayList<Integer>> intPaths = new ArrayList<>(pf.getPaths());
+        int begin = s.getStopIntMap(first);
+        int end = s.getStopIntMap(Last);
+        ArrayList<ArrayList<Integer>> intPaths = new ArrayList<>(pf.getAllPaths(begin, end));
         ArrayList<ArrayList<Stop>> stopPaths = new ArrayList<>();
-        for (int i = 0; i < intPaths.size(); i++) {
-            ArrayList<Stop> temp = new ArrayList<>();
-            for (int j = 0; j < intPaths.get(i).size(); j++) {
-                temp.add(s.getIntStopSet(intPaths.get(i).get(j)));
-            }
-            stopPaths.add(temp);
-        }
+//        for (int i = 0; i < intPaths.size(); i++) {
+//            ArrayList<Stop> temp = new ArrayList<>();
+//            for (int j = 0; j < intPaths.get(i).size(); j++) {
+//                temp.add(s.getIntStopSet(intPaths.get(i).get(j)));
+//            }
+//            stopPaths.add(temp);
+//        }
+        System.out.println(intPaths);
         return stopPaths;
     }
 }

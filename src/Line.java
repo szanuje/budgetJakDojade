@@ -16,12 +16,12 @@ public class Line {
 
         for (int i = 0; i < stopList.size() - 1; i++) {
             ArrayList<Integer> temp = new ArrayList<>();
-            temp.add(stopList.get(i).getStopIntSet(stopList.get(i)));
-            temp.add(stopList.get(i+1).getStopIntSet(stopList.get(i+1)));
+            temp.add(stopList.get(i).getStopIntMap(stopList.get(i)));
+            temp.add(stopList.get(i+1).getStopIntMap(stopList.get(i+1)));
             connections.add(temp);
             temp = new ArrayList<>();
-            temp.add(stopList.get(i+1).getStopIntSet(stopList.get(i+1)));
-            temp.add(stopList.get(i).getStopIntSet(stopList.get(i)));
+            temp.add(stopList.get(i+1).getStopIntMap(stopList.get(i+1)));
+            temp.add(stopList.get(i).getStopIntMap(stopList.get(i)));
             connections.add(temp);
         }
     }
