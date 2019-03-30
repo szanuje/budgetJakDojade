@@ -1,4 +1,6 @@
 import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Set;
 
 public class Graph {
 
@@ -9,11 +11,11 @@ public class Graph {
         // No. of vertices in graph
         private int v;
 
-        private ArrayList<ArrayList<Integer>> paths;
+        private Set<ArrayList<Integer>> paths;
         // adjacency list
         private ArrayList<Integer>[] adjList;
         
-        public ArrayList<ArrayList<Integer>> getPaths() {
+        public Set<ArrayList<Integer>> getPaths() {
             return paths;
         }
 
@@ -22,7 +24,7 @@ public class Graph {
 
             //initialise vertex count
             this.v = vertices;
-            this.paths = new ArrayList<>();
+            this.paths = new HashSet<>();
 
             // initialise adjacency list
             initAdjList();
@@ -50,7 +52,7 @@ public class Graph {
 
         // Prints all paths from
         // 's' to 'd'
-        public ArrayList<ArrayList<Integer>> getAllPaths(int s, int d)
+        public Set<ArrayList<Integer>> getAllPaths(int s, int d)
         {
             boolean[] isVisited = new boolean[v];
             ArrayList<Integer> pathList = new ArrayList<>();
@@ -79,7 +81,7 @@ public class Graph {
 
             if (u.equals(d))
             {
-                System.out.println(localPathList);
+                //System.out.println(localPathList);
                 paths.add(new ArrayList<>(localPathList));
                 // if match found then no need to traverse more till depth
                 isVisited[u]= false;
@@ -106,7 +108,5 @@ public class Graph {
             // Mark the current node
             isVisited[u] = false;
         }
-
-
     }
 

@@ -2,7 +2,6 @@ import java.util.ArrayList;
 
 public class Test {
 
-    // Driver program
     public static void main(String[] args)
     {
         Stop A = new Stop("A");
@@ -32,9 +31,10 @@ public class Test {
 
         Line l3 = new Line(3, Line3list);
 
-        PathFinder p = new PathFinder();
-        p.addVertices();
-        p.findPath(A, G);
+        PathFinder p = new PathFinder(A, G);
+//        p.addVertices();
+//        p.findPath(A, G);
+//        System.out.println(p.getLines());
 
     }
 }
